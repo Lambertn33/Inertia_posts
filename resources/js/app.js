@@ -1,5 +1,6 @@
 import { createApp, h } from "vue";
 import { createInertiaApp } from "@inertiajs/vue3";
+import TheCard from "./components/Card.vue";
 import "mdb-vue-ui-kit/css/mdb.min.css";
 
 createInertiaApp({
@@ -11,6 +12,7 @@ createInertiaApp({
     setup({ el, App, props, plugin }) {
         createApp({ render: () => h(App, props) })
             .use(plugin)
+            .component("card", TheCard)
             .mount(el);
     },
 });

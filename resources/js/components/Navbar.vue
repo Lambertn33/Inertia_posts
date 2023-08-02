@@ -8,8 +8,8 @@
     ></MDBNavbarToggler>
     <MDBCollapse id="navbarText" v-model="collapsed">
       <MDBNavbarNav right>
-        <Link class="nav-link" href="/">Home</Link>
-        <Link class="nav-link" href="#">Posts</Link>
+        <Link class="nav-link" href="/">All Posts</Link>
+        <Link class="nav-link" href="/posts" v-if="authInfo.isAuth">My Posts</Link>
         <Link href="/auth/register" class="nav-link" v-if="!authInfo.isAuth">Register</Link>
         <Link href="/auth/login" class="nav-link" v-if="!authInfo.isAuth">Login</Link>
         <Link href="/auth/logout" class="nav-btn" method="post" as="button" v-if="authInfo.isAuth">Logout</Link>

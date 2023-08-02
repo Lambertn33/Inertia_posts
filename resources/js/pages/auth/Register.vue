@@ -1,5 +1,5 @@
 <template>
-  <Head title="Home" />
+  <Head title="Register" />
   <div class="grid">
     <div class="d-flex align-items-center" style="height: 90vh">
       <MDBCol md="4" sm="12" class="offset-md-4">
