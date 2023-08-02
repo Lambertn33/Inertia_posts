@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,11 +20,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index']);
 
 Route::prefix('auth')->group(function () {
-    Route::controller(RegisterController::class)->prefix('register')->group(function () {
-        Route::get('/', 'create');
-        Route::post('/', 'store');
+    Route::middleware('guest')->group(function () {
+        Route::controller(RegisterController::class)->prefix('register')->group(function () {
+            Route::get('/', 'create');
+            Route::post('/', 'store');
+        });
+        Route::controller(LoginController::class)->prefix('login')->group(function () {
+            Route::get('/', 'create')->name('login');
+            Route::post('/', 'store');
+        });
     });
-    Route::controller(LoginController::class)->prefix('login')->group(function () {
-        Route::get('/', 'create');
+    Route::post('logout', function () {
+        Auth::logout();
+        return redirect()->route('login');
     });
 });

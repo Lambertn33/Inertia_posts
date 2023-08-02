@@ -1,7 +1,7 @@
 <template>
   <MDBNavbar expand="lg" dark bg="primary" container class="main-nav">
     <MDBNavbarBrand href="#">Posts</MDBNavbarBrand>
-    <span>Welcome</span>
+    <span>Welcome {{ authInfo.isAuth ? authInfo.user.names : '' }}</span>
     <MDBNavbarToggler
       target="#navbarText"
       @click="collapsed = !collapsed"
@@ -10,8 +10,9 @@
       <MDBNavbarNav right>
         <Link class="nav-link" href="/">Home</Link>
         <Link class="nav-link" href="#">Posts</Link>
-        <Link href="/auth/register" class="nav-link">Register</Link>
-        <Link href="/auth/login" class="nav-link">Login</Link>
+        <Link href="/auth/register" class="nav-link" v-if="!authInfo.isAuth">Register</Link>
+        <Link href="/auth/login" class="nav-link" v-if="!authInfo.isAuth">Login</Link>
+        <Link href="/auth/logout" class="nav-btn" method="post" as="button" v-if="authInfo.isAuth">Logout</Link>
       </MDBNavbarNav>
     </MDBCollapse>
   </MDBNavbar>
@@ -41,6 +42,11 @@ export default {
       collapsed: false,
     };
   },
+  computed: {
+    authInfo() {
+      return this.$page.props.auth
+    }
+  }
 };
 </script>
 
