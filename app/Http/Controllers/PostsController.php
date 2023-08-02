@@ -42,4 +42,10 @@ class PostsController extends Controller
         Post::insert($newPost);
         return redirect('/posts');
     }
+
+    public function destroy(Request $request)
+    {
+        Post::find($request->postId)->delete();
+        return back();
+    }
 }

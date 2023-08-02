@@ -20,7 +20,14 @@
           <template v-slot:actions>
             <div class="d-flex gap-4">
               <Link class="btn btn-info">Edit</Link>
-              <Link class="btn btn-danger">Delete</Link>
+              <Link
+                class="btn btn-danger"
+                method="delete"
+                as="button"
+                href="/posts/destroy"
+                :data="{ postId: post.id }"
+                >Delete</Link
+              >
             </div>
           </template>
           <template v-slot:footer> </template>
