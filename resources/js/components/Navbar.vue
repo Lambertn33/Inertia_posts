@@ -1,6 +1,7 @@
 <template>
   <MDBNavbar expand="lg" dark bg="primary" container class="main-nav">
     <MDBNavbarBrand href="#">Posts</MDBNavbarBrand>
+    <span>Welcome</span>
     <MDBNavbarToggler
       target="#navbarText"
       @click="collapsed = !collapsed"
@@ -46,6 +47,11 @@ export default {
 <style scoped>
   .main-nav {
     padding: 0.5rem 2rem;
+    display: flex;
+    align-items: center;
+  }
+  .main-nav span {
+    color: #fff;
   }
   .nav-link {
     color: #fff;

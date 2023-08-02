@@ -21,6 +21,7 @@ Route::get('/', [HomeController::class, 'index']);
 Route::prefix('auth')->group(function () {
     Route::controller(RegisterController::class)->prefix('register')->group(function () {
         Route::get('/', 'create');
+        Route::post('/', 'store');
     });
     Route::controller(LoginController::class)->prefix('login')->group(function () {
         Route::get('/', 'create');

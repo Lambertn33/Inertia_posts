@@ -30,7 +30,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 form {
   border: 1px solid gray;
   padding: 2rem;
