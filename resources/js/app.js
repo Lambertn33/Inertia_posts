@@ -1,7 +1,9 @@
 import { createApp, h } from "vue";
 import { createInertiaApp } from "@inertiajs/vue3";
+import "mdb-vue-ui-kit/css/mdb.min.css";
 
 createInertiaApp({
+    title: (title) => `${title} - Posts`,
     resolve: (name) => {
         const pages = import.meta.glob("./pages/**/*.vue", { eager: true });
         return pages[`./pages/${name}.vue`];
