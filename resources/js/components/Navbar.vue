@@ -7,11 +7,10 @@
     ></MDBNavbarToggler>
     <MDBCollapse id="navbarText" v-model="collapsed">
       <MDBNavbarNav right>
-        <MDBNavbarItem href="#"> Home </MDBNavbarItem>
-        <MDBNavbarItem href="#"> Posts </MDBNavbarItem>
-        <MDBNavbarItem href="#"> Register </MDBNavbarItem>
-        <MDBNavbarItem href="#"> Login </MDBNavbarItem>
-
+        <Link class="nav-link" href="/">Home</Link>
+        <Link class="nav-link" href="#">Posts</Link>
+        <Link href="/auth/register" class="nav-link">Register</Link>
+        <Link href="/auth/login" class="nav-link">Login</Link>
       </MDBNavbarNav>
     </MDBCollapse>
   </MDBNavbar>
@@ -23,17 +22,17 @@ import {
   MDBNavbarBrand,
   MDBNavbarToggler,
   MDBNavbarNav,
-  MDBNavbarItem,
   MDBCollapse,
 } from "mdb-vue-ui-kit";
+import { Link } from "@inertiajs/vue3";
 
 export default {
   components: {
+    Link,
     MDBNavbar,
     MDBNavbarBrand,
     MDBNavbarToggler,
     MDBNavbarNav,
-    MDBNavbarItem,
     MDBCollapse,
   },
   data() {
@@ -43,3 +42,13 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+  .nav-link {
+    color: #fff;
+    font-weight: 400;
+  }
+  .nav-link:hover {
+    text-decoration: underline;
+  }
+</style>
