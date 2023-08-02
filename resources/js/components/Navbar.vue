@@ -1,5 +1,5 @@
 <template>
-  <MDBNavbar expand="lg" dark bg="primary" container>
+  <MDBNavbar expand="lg" dark bg="primary" container class="main-nav">
     <MDBNavbarBrand href="#">Posts</MDBNavbarBrand>
     <MDBNavbarToggler
       target="#navbarText"
@@ -44,6 +44,9 @@ export default {
 </script>
 
 <style scoped>
+  .main-nav {
+    padding: 0.5rem 2rem;
+  }
   .nav-link {
     color: #fff;
     font-weight: 400;
